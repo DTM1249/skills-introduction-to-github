@@ -16,7 +16,7 @@ const path = require('path');
 const RSS_SOURCES = [
   {
     name: 'VOA Learning English',
-    url: 'https://learningenglish.voanews.com/api/zpoqiio-pq',
+    url: 'https://learningenglish.voanews.com/z/1627/rss.xml',
     band: 6.0,
     section: 'Section 1',
     badge: '#4CAF50',
@@ -172,7 +172,12 @@ function markArticleSent(history, url) {
 async function fetchFeed(source) {
   const parser = new RSSParser({
     timeout: 15000,
-    headers: { 'User-Agent': 'IELTS-Digest-Bot/1.0' },
+    headers: {
+      'User-Agent': 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/124.0.0.0 Safari/537.36',
+      'Accept': 'application/rss+xml, application/xml, text/xml, */*',
+      'Accept-Language': 'en-US,en;q=0.9',
+      'Cache-Control': 'no-cache',
+    },
   });
 
   try {
